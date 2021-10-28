@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.2.RELEASE</version>
+        <relativePath/> <!-- 从存储库中查找父项 -->
+    </parent>
+    <groupId>com.baitu.cloud</groupId>
+    <artifactId>baitu-cloud</artifactId>
+    <version>1.0.0</version>
+    <name>baitu-cloud</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>baitu-api</module>
+        <module>baitu-auth</module>
+        <module>baitu-client</module>
+        <module>baitu-common</module>
+        <module>baitu-gateway</module>
+        <module>baitu-model</module>
+        <module>baitu-modules</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+        <baitu.version>1.0.0</baitu.version>
+
+        <!-- Spring -->
+        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
+        <spring.cloud.alibaba.version>2.2.5.RELEASE</spring.cloud.alibaba.version>
+
+        <!-- 工具集 -->
+        <lombok.version>1.18.22</lombok.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <hutool.version>5.7.14</hutool.version>
+        <fastjson.version>1.2.78</fastjson.version>
+
+        <!-- Mybatis -->
+        <mybatis.version>3.4.3.3</mybatis.version>
+        <mysql.version>8.0.26</mysql.version>
+
+        <!-- Swagger -->
+        <springfox.version>3.0.0</springfox.version>
+        <swagger-annotations.version>1.5.24</swagger-annotations.version>
+
+        <!-- 杂项 -->
+        <jackson-annotations.version>2.12.5</jackson-annotations.version>
+        <jakarta-validation.version>2.0.2</jakarta-validation.version>
+
+    </properties>
+
+    <!-- 全局依赖 -->
+    <dependencies>
+        <!-- 工具集 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!-- 版本控制 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 百图模型 -->
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-model</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+
+            <!-- 百图服务接口 -->
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-api-system</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-api-user</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+
+            <!-- 百图服务调用 -->
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-client-system</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-client-user</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+
+            <!-- 百图公共 -->
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-common-core</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-common-exception</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-common-feign</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-common-log</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-common-mybatis</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-common-redis</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-common-security</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baitu.cloud</groupId>
+                <artifactId>baitu-common-swagger</artifactId>
+                <version>${baitu.version}</version>
+            </dependency>
+
+            <!-- Mybatis -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- Swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations.version}</version>
+            </dependency>
+
+            <!-- 杂项 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${jakarta-validation.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
