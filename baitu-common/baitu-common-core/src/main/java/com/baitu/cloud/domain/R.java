@@ -1,14 +1,19 @@
 package com.baitu.cloud.domain;
 
 import com.baitu.cloud.constant.Constants;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.io.Serializable;
 
 /**
  * @author cj@baitutech.com
  * @since 2021.07.22 13:25
- * 响应信息主体
+ * 统一结果集
  */
+@Data
+@ApiModel("统一结果集")
 public class R<T> implements Serializable {
 
     /**
@@ -21,10 +26,13 @@ public class R<T> implements Serializable {
      */
     public static final int FAIL = Constants.FAIL;
 
+    @ApiModelProperty("结果码")
     private int code;
 
+    @ApiModelProperty("消息体")
     private String msg;
 
+    @ApiModelProperty("数据")
     private T data;
 
     public static <T> R<T> ok() {
@@ -67,27 +75,4 @@ public class R<T> implements Serializable {
         return apiResult;
     }
 
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }

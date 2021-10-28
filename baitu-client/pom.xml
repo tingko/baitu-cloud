@@ -16,7 +16,6 @@
 
     <modules>
         <module>baitu-client-system</module>
-        <module>baitu-client-user</module>
     </modules>
 
     <dependencies>

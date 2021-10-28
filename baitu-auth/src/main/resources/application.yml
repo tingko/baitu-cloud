@@ -3,3 +3,17 @@ server:
 spring:
   application:
     name: baitu-auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.237:8848
+        namespace: 38c917f3-8b5a-4c70-babf-0539d2216183
+
+swagger:
+  base-package: com.baitu.cloud
+  title: 鉴权服务接口文档
+  description: 鉴权服务接口文档
+  version: 1.0
+  author: 杭州百图
+  url: baitutech.com
+  email: cj@baitutech.com

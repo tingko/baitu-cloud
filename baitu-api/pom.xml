@@ -16,7 +16,6 @@
 
     <modules>
         <module>baitu-api-system</module>
-        <module>baitu-api-user</module>
     </modules>
 
     <dependencies>

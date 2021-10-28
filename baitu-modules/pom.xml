@@ -17,7 +17,6 @@
     <modules>
         <module>baitu-file-server</module>
         <module>baitu-system-server</module>
-        <module>baitu-user-server</module>
     </modules>
 
 </project>
