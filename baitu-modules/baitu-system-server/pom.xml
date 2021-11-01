@@ -25,6 +25,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 服务调用接口 -->
         <dependency>
             <groupId>com.baitu.cloud</groupId>
             <artifactId>baitu-api-system</artifactId>

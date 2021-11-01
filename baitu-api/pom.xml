@@ -19,10 +19,12 @@
     </modules>
 
     <dependencies>
+        <!-- 为服务调用接口提供模型支持 -->
         <dependency>
             <groupId>com.baitu.cloud</groupId>
             <artifactId>baitu-model</artifactId>
         </dependency>
+        <!-- 为服务调用接口提供 Spring Web 注解支持 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>

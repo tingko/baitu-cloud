@@ -15,6 +15,11 @@ import org.springframework.stereotype.Component;
 public class SwaggerProperties {
 
     /**
+     * 是否启用
+     */
+    private Boolean enabled;
+
+    /**
      * 扫描基包
      */
     private String basePackage;

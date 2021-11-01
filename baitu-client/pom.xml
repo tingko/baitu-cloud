@@ -19,9 +19,15 @@
     </modules>
 
     <dependencies>
+        <!-- 提供全局服务调用客户端 Feign 支持 -->
         <dependency>
             <groupId>com.baitu.cloud</groupId>
             <artifactId>baitu-common-feign</artifactId>
+        </dependency>
+        <!-- 服务名常量支持 -->
+        <dependency>
+            <groupId>com.baitu.cloud</groupId>
+            <artifactId>baitu-common-core</artifactId>
         </dependency>
     </dependencies>
 

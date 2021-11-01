@@ -1,9 +1,12 @@
 package com.baitu.cloud.domain;
 
-import com.baitu.cloud.constant.Constants;
+import com.baitu.cloud.constant.CommonConstants;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -13,58 +16,52 @@ import java.io.Serializable;
  * 统一结果集
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
 @ApiModel("统一结果集")
 public class R<T> implements Serializable {
 
-    /**
-     * 成功
-     */
-    public static final int SUCCESS = Constants.SUCCESS;
+    private static final long serialVersionUID = 1L;
 
-    /**
-     * 失败
-     */
-    public static final int FAIL = Constants.FAIL;
-
-    @ApiModelProperty("结果码")
+    @ApiModelProperty("状态码")
     private int code;
 
-    @ApiModelProperty("消息体")
+    @ApiModelProperty("消息")
     private String msg;
 
     @ApiModelProperty("数据")
     private T data;
 
+    @ApiModelProperty("是否成功")
+    private boolean success;
+
     public static <T> R<T> ok() {
-        return restResult(null, SUCCESS, null);
+        return restResult(null, CommonConstants.SUCCESS, null);
     }
 
     public static <T> R<T> ok(T data) {
-        return restResult(data, SUCCESS, null);
+        return restResult(data, CommonConstants.SUCCESS, null);
     }
 
     public static <T> R<T> ok(T data, String msg) {
-        return restResult(data, SUCCESS, msg);
+        return restResult(data, CommonConstants.SUCCESS, msg);
     }
 
-    public static <T> R<T> fail() {
-        return restResult(null, FAIL, null);
+    public static <T> R<T> failed() {
+        return restResult(null, CommonConstants.FAIL, null);
     }
 
-    public static <T> R<T> fail(String msg) {
-        return restResult(null, FAIL, msg);
+    public static <T> R<T> failed(String msg) {
+        return restResult(null, CommonConstants.FAIL, msg);
     }
 
-    public static <T> R<T> fail(T data) {
-        return restResult(data, FAIL, null);
+    public static <T> R<T> failed(T data) {
+        return restResult(data, CommonConstants.FAIL, null);
     }
 
-    public static <T> R<T> fail(T data, String msg) {
-        return restResult(data, FAIL, msg);
-    }
-
-    public static <T> R<T> fail(int code, String msg) {
-        return restResult(null, code, msg);
+    public static <T> R<T> failed(T data, String msg) {
+        return restResult(data, CommonConstants.FAIL, msg);
     }
 
     private static <T> R<T> restResult(T data, int code, String msg) {
@@ -72,7 +69,12 @@ public class R<T> implements Serializable {
         apiResult.setCode(code);
         apiResult.setData(data);
         apiResult.setMsg(msg);
+        apiResult.setSuccess(code == CommonConstants.SUCCESS);
         return apiResult;
+    }
+
+    private boolean isSuccess() {
+        return this.success;
     }
 
 }

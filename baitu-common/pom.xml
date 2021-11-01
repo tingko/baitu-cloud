@@ -18,6 +18,7 @@
         <module>baitu-common-core</module>
         <module>baitu-common-exception</module>
         <module>baitu-common-feign</module>
+        <module>baitu-common-job</module>
         <module>baitu-common-log</module>
         <module>baitu-common-mybatis</module>
         <module>baitu-common-redis</module>

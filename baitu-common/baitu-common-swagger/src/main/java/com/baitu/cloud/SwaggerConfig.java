@@ -29,8 +29,8 @@ public class SwaggerConfig {
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .enable(swaggerProperties.getEnabled())
                 .apiInfo(apiInfo(swaggerProperties))
-                .enable(true)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasePackage()))
                 .paths(PathSelectors.any())

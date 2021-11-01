@@ -15,7 +15,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>baitu-file-server</module>
         <module>baitu-system-server</module>
     </modules>
 

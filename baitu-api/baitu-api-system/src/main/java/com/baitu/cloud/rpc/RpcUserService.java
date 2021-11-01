@@ -14,4 +14,7 @@ public interface RpcUserService {
     @GetMapping("/rpc/system/users/findByUsername")
     UserEntity findByUsername(@RequestParam String username);
 
+    @GetMapping("/rpc/system/users/findByUserId")
+    UserEntity findByUserId(@RequestParam Long userId);
+
 }
