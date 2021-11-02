@@ -18,4 +18,11 @@
         <module>baitu-system-server</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.baitu.cloud</groupId>
+            <artifactId>baitu-common-swagger</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
